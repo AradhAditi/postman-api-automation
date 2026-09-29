@@ -1,0 +1,108 @@
+{
+  "info": {
+    "_postman_id": "2e7ad195-e448-42f4-b31b-200d2d39d8eb",
+    "name": "HttpBin",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9187939"
+  },
+  "item": [
+    {
+      "name": "Request1",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Do-Not-Track",
+            "value": "1",
+            "type": "text"
+          },
+          {
+            "key": "myOwn",
+            "value": "foo",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "httpbin.org/anything?foo=value1&foo2=value2",
+          "host": [
+            "httpbin",
+            "org"
+          ],
+          "path": [
+            "anything"
+          ],
+          "query": [
+            {
+              "key": "foo",
+              "value": "value1"
+            },
+            {
+              "key": "foo2",
+              "value": "value2"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "httpbin.org/anything?age&name",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "",
+              "pm.globals.set(\"name\", \"anshu\");"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "example.com/foo",
+          "host": [
+            "example",
+            "com"
+          ],
+          "path": [
+            "foo"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://en97lb7b4uxt3f9.m.pipedream.net",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://en97lb7b4uxt3f9.m.pipedream.net",
+          "protocol": "https",
+          "host": [
+            "en97lb7b4uxt3f9",
+            "m",
+            "pipedream",
+            "net"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
